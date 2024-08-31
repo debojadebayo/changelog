@@ -2,12 +2,17 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from "jsonwebtoken"
 import * as bcrypt from "bcrypt"
 
-export const createJWT= (user) => {
+interface User {
+    id: string
+    username: string
+    password?: string
+}
+export const createJWT = (user: User) => {
     const token = jwt.sign({
         id:user.id,
         username: user.username
     },
-    process.env.JWT_TOKEN       
+    process.env.JWT_SECRET   
     )
     return token
 }

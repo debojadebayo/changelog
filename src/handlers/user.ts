@@ -4,12 +4,11 @@ import { comparePasswords, createJWT, hashPassword } from "../modules/auth"
 
 
 export const createNewUser = async (req, res) =>{
-    const hash = await hashPassword(req.body.password)
 
     const user = await prisma.user.create({
         data:{
             username: req.body.username,
-            password: hash
+            password: await hashPassword(req.body.password)
         }
     })
 
@@ -22,10 +21,13 @@ export const getUsers = async (req, res) => {
 } 
 
 export const signIn = async (req, res) => {
+
+    //finds user in database 
     const user = await prisma.user.findUnique({
         where: { username: req.body.username }, 
     })
-
+    
+    //compares password in request to the database 
     const isValid = await comparePasswords(req.body.password, user.password)
 
     if(!isValid){
@@ -37,7 +39,5 @@ export const signIn = async (req, res) => {
 
     const token = createJWT(user)
     res.json({ token })
-    }
-    //take the req.body.password  & username and compare to the database 
-
 }
+
