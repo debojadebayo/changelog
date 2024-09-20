@@ -71,7 +71,7 @@ export const updateUpdate = async (req, res) => {
 
   if (!match) {
     // handle this
-    return res.json({message: 'nope'})
+    return res.json({message: 'update not found'})
   }
 
 
