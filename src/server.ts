@@ -10,18 +10,9 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-app.get('/', (req, res) => {
-    res.send('Hey, how you doin??');
-  });
-
-app.post('/', (req,res) => {
-  res.send("POST request to the homepage")
-})
 
 app.use('/api', protect, router)
 
-app.post('/user', createNewUser)
-app.post('/signin', signIn)
 
 app.use((err, req, res, next) => {
   if(err.type === 'input'){
@@ -31,8 +22,17 @@ app.use((err, req, res, next) => {
   } else {
     res.status(500).json({ message: "Apologies, that's our mistake"})
   }
-
+  
 })
 
+app.get('/', (req, res) => {
+    res.send('Hey, how you doin??');
+  });
+
+app.post('/', (req,res) => {
+  res.send("POST request to the homepage")
+})
+app.post('/user', createNewUser)
+app.post('/signin', signIn)
 
 export default app 
