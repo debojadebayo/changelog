@@ -1,4 +1,5 @@
 import * as user from '../user'
+import { prismaMock } from '../../singleton'
 
 
 describe(" user handler", () => {
@@ -11,7 +12,18 @@ describe(" user handler", () => {
 
         const mockNext = jest.fn()
         
-        const newUser=  await user.createNewUser(mockReq, mockRes, () => {})
+        const newUser=  await user.createNewUser(mockReq, mockRes, mockNext)
+
+        console.log(prismaMock.user.create.mock.calls)
+
+        expect(prismaMock.user.create).toHaveBeenCalledWith({
+            data: {
+                username: 'testuser2',
+                password: expect.any(String)
+            }
+        })
+
+
         
     })
 })

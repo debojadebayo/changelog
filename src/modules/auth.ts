@@ -6,6 +6,7 @@ interface User {
     username: string
     password?: string
 }
+
 export const createJWT = (user: User) => {
     const token = jwt.sign({
         id:user.id,
