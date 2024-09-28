@@ -26,12 +26,17 @@ app.use((err, req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Hey, how you doin??');
+  const responseBody = {message: "Hey, how you doin??"}
+  res.json(responseBody)
+  console.log(responseBody)
   });
 
 app.post('/', (req,res) => {
-  res.send("POST request to the homepage")
+  const responseBody = {message: "POST request to the homepage"}
+  res.json(responseBody)
+  console.log(responseBody)
 })
+
 app.post('/user', createNewUser)
 app.post('/signin', signIn)
 

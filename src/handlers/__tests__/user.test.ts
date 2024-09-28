@@ -22,8 +22,6 @@ describe(" user handler", () => {
                 password: expect.any(String)
             }
         })
-
-
         
     })
 })
