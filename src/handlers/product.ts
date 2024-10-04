@@ -1,5 +1,4 @@
-import { json } from "stream/consumers";
-import prisma from "../db";
+import prisma from "../db.js";
 
 
 

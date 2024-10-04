@@ -1,4 +1,4 @@
-import app from "../../server";
+import app from "../../server.js";
 import supertest from "supertest";
 
 
@@ -13,10 +13,10 @@ describe("GET /", () => {
 });
 
 
-// describe("POST /", () => {
-//     it("should return 200 OK", async () => {
-//         const response = await request.post("/")
-//         expect(response.status).toBe(200)
-//         expect(response.body.message).toBe('POST request to the homepage')
-//     })
-// })
+describe("POST /", () => {
+    it("should return 200 OK", async () => {
+        const response = await request.post("/")
+        expect(response.status).toBe(200)
+        expect(response.body.message).toBe('POST request to the homepage')
+    })
+})

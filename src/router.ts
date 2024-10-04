@@ -1,9 +1,9 @@
 import { error } from "console"
 import { Router } from "express"
 import { body, validationResult } from "express-validator"
-import { handleInputErrors } from "./modules/middleware"
-import { createProduct, deleteProduct, getProduct, getProducts, updateProduct } from "./handlers/product"
-import { createUpdate, deleteUpdate, getOneUpdate, getUpdates, updateUpdate } from "./handlers/update"
+import { handleInputErrors } from "./modules/middleware.js"
+import { createProduct, deleteProduct, getProduct, getProducts, updateProduct } from "./handlers/product.js"
+import { createUpdate, deleteUpdate, getOneUpdate, getUpdates, updateUpdate } from "./handlers/update.js"
 
 const router = Router()
 

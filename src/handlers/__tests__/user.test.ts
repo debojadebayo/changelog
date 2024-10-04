@@ -1,5 +1,5 @@
-import * as user from '../user'
-import { prismaMock } from '../../singleton'
+import * as user from '../user.js'
+import { prismaMock } from '../../singleton.js'
 
 
 describe(" user handler", () => {

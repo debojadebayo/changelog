@@ -1,6 +1,6 @@
 import { create } from "domain"
-import prisma from "../db"
-import { comparePasswords, createJWT, hashPassword } from "../modules/auth"
+import prisma from "../db.js"
+import { comparePasswords, createJWT, hashPassword } from "../modules/auth.js"
 
 
 export const createNewUser = async (req, res, next) =>{

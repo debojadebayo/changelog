@@ -1,8 +1,8 @@
-import router from "./router"
+import router from "./router.js"
 import express from "express"
 import morgan from "morgan"
-import { protect } from "./modules/auth"
-import { createNewUser, signIn } from "./handlers/user"
+import { protect } from "./modules/auth.js"
+import { createNewUser, signIn } from "./handlers/user.js"
 
 
 const app = express()
